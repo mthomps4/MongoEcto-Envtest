@@ -6,7 +6,7 @@ Ping/Pong Test with Distillery build using ENV Vars: `REPLACE_OS_VARS`, `DB_NAME
 - In db `envtest_prod` create a collection called `pongs` 
 - In collection `pongs` create a new document with `count: 10` _or any integer_
 
-## Initial Test: hardcoded DB -- WORKING
+## Initial Test: hardcoded DB -- WORKING _(master Branch)_
 #### Step 1: Clone 
 - clone down 
 - cd in 
@@ -49,10 +49,10 @@ Successful Query Run
 
 -------------
 
-## With DB ENV Vars -- FAILING 
+## With DB ENV Vars -- FAILING _(dynamic_env Branch)
 
 #### Step 1: Initial Setup
-- Swap the DB config to the following: 
+- Checkout branch `dynamic_env` OR Swap the DB prod config to the following: 
 ```
   database: "${DB_NAME}",
   hostname: "${DB_HOST}",
@@ -87,14 +87,6 @@ Should should see:
 
 
 ## NOTES: 
-I've tried passing in ENV vars during the Distillery build as well with the same results 
-The end goal will is to have a release that can work dynamically with DB ENV Vars.
+I've tried passing in ENV vars during the Distillery build as well with the same results.
+The end goal is to have a release that can work dynamically with DB ENV Vars.
 If another build tool is known to work and available I am open to suggestions. 
-
-
-
-
-
-
-
-
