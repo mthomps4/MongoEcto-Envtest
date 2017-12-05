@@ -1,19 +1,18 @@
 # MongoEcto-Envtest
 Ping/Pong Test with Distillery build using ENV Vars: `REPLACE_OS_VARS`, `DB_NAME`, `DB_HOST`, `DB_PORT`, `HOST`,`PORT`
 
-## Initial Test: hardcoded DB -- WORKING
+## SETUP MONGO
+- In local Mongo (27017) -- Create the db `envtest_prod`
+- In db `envtest_prod` create a collection called `pongs` 
+- In collection `pongs` create a new document with `count: 10` _or any integer_
 
+## Initial Test: hardcoded DB -- WORKING
 #### Step 1: Clone 
 - clone down 
 - cd in 
 - mix deps.get 
 
-#### Step 2: Mongo 
-- In local Mongo (27017) -- Create the db `envtest_prod`
-- In db `envtest_prod` create a collection called `pongs` 
-- In collection `pongs` create a new document with `count: 10` _or any integer_
-
-#### Step 3: Initial Setup
+#### Step 2: Initial Setup
 - Check `config/prod.exs` 
 - Leave DB config hardcoded to the following 
 ```
@@ -22,7 +21,7 @@ Ping/Pong Test with Distillery build using ENV Vars: `REPLACE_OS_VARS`, `DB_NAME
   port: 27017
 ```
 
-#### Step 4: Build with Distillery and MIX_ENV 
+#### Step 3: Build with Distillery and MIX_ENV 
 - Run `mix release.init`
 - Run `MIX_ENV=prod mix release --env=prod` _this will hit the prod config_ 
 - You should see the following: 
@@ -34,7 +33,7 @@ Ping/Pong Test with Distillery build using ENV Vars: `REPLACE_OS_VARS`, `DB_NAME
       Daemon: _build/prod/rel/envtest/bin/envtest start
 ```
 
-#### Step 5: Run with ENV Vars needed 
+#### Step 4: Run with ENV Vars needed 
 - HOST & PORT work correctly and are needed reguardless 
 - REPLACE_OS_VARS=true set to use vars passed in
 - Run `HOST=localhost PORT=4000 REPLACE_OS_VARS=true _build/prod/rel/envtest/bin/envtest console`
