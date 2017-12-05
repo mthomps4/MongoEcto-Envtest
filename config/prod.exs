@@ -68,11 +68,11 @@ config :logger, level: :info
 # Configure your database
 config :envtest, Envtest.Repo,
   adapter: Mongo.Ecto,
-  database: "envtest_prod",
-  hostname: "0.0.0.0",
-  port: 27017
-#  SWAP FOR DB ENV VARS 
-#  database: "${DB_NAME}",
-#  hostname: "${DB_HOST}",
-#  port: "${DB_PORT}"
+  #  database: "envtest_prod",
+  #  hostname: "0.0.0.0",
+  #  port: 27017
+  #  SWAP FOR DB ENV VARS 
+  database: "${DB_NAME}",
+  hostname: "${DB_HOST}",
+  port: "${DB_PORT}"
 
