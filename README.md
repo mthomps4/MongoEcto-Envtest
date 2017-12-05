@@ -90,3 +90,4 @@ Should should see:
 I've tried passing in ENV vars during the Distillery build as well with the same results.
 The end goal is to have a release that can work dynamically with DB ENV Vars.
 If another build tool is known to work and available I am open to suggestions. 
+
